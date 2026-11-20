@@ -11,20 +11,9 @@
 .hero p.lead{font-size:1.15rem;color:#d7e0ee;max-width:540px}
 .hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
 .hero .note{margin-top:16px;font-size:.88rem;color:#a9b9d1}
+.hero .wrap>*{min-width:0}
 @media(max-width:880px){.hero .wrap{grid-template-columns:1fr}.hero{padding:48px 0 56px}}
 
-/* phone mock */
-.phone{background:#0a1a36;border-radius:34px;padding:12px;max-width:340px;margin:0 auto;box-shadow:0 30px 60px rgba(0,0,0,.35)}
-.screen{background:#ECE5DD;border-radius:24px;overflow:hidden}
-.chat-head{background:var(--navy);color:#fff;padding:14px 16px;display:flex;align-items:center;gap:10px;font-weight:600;font-size:.95rem}
-.avatar{width:34px;height:34px;border-radius:50%;background:var(--gold);color:#1b1405;display:grid;place-items:center;font-weight:700}
-.chat-head small{display:block;font-weight:400;opacity:.75;font-size:.75rem}
-.chat{padding:14px 12px 18px;display:flex;flex-direction:column;gap:9px;min-height:330px}
-.msg{max-width:84%;padding:9px 12px;border-radius:12px;font-size:.84rem;line-height:1.45;box-shadow:0 1px 1px rgba(0,0,0,.08)}
-.msg.me{align-self:flex-end;background:#DCF8C6;border-top-right-radius:3px;color:#163020}
-.msg.bot{align-self:flex-start;background:#fff;border-top-left-radius:3px;color:#1c2430}
-.msg b{color:var(--navy)}
-.msg .tag{display:inline-block;margin-top:5px;background:var(--gold-soft);color:var(--gold-ink);border:1px solid #ecdcae;border-radius:6px;padding:1px 7px;font-size:.72rem;font-weight:600}
 
 /* sections */
 section{padding:70px 0}
@@ -68,7 +57,7 @@ details p{margin:10px 0 0;color:var(--muted)}
   <div class="wrap">
     <div>
       <h1>Your books, kept for you by a <em>Virtual Accountant</em></h1>
-      <p class="lead">Send a receipt, a sale or a quick message. Safaribook records it, sorts it, chases late payers, runs payroll and gives you clear reports, so you can run the business instead of the paperwork.</p>
+      <p class="lead">Snap a receipt or type what happened in the Mhasibu app. Safaribook records it, sorts it, keeps track of who owes you, and gives you clear reports and plain-language advice, so you can run the business instead of the paperwork.</p>
       <div class="cta">
         <a class="btn btn-gold" href="/join">Register your business</a>
         <a class="btn btn-ghost" href="#how">See how it works</a>
@@ -76,19 +65,7 @@ details p{margin:10px 0 0;color:var(--muted)}
       <p class="note">Built for small and growing businesses. No accounting background needed.</p>
     </div>
 
-    <div class="phone" aria-label="Example conversation with the Virtual Accountant">
-      <div class="screen">
-        <div class="chat-head"><div class="avatar">M</div><div>Mhasibu<small>Your Virtual Accountant</small></div></div>
-        <div class="chat">
-          <div class="msg me">Bought stationery for the office, 45,000 cash 📎</div>
-          <div class="msg bot">Got it. I read the receipt: <b>TSh 45,000</b>, Stationery. Was this for the office or the shop?<br><span class="tag">Receipt scanned</span></div>
-          <div class="msg me">Office</div>
-          <div class="msg bot">Recorded under <b>Office expenses</b>. ✅<br>Mama Neema still owes you <b>TSh 320,000</b> (14 days). Shall I send her a friendly reminder?</div>
-          <div class="msg me">Yes please</div>
-          <div class="msg bot">Done. I'll send your daily summary tonight.</div>
-        </div>
-      </div>
-    </div>
+    @include("site.partials.app-demo")
   </div>
 </section>
 
@@ -118,7 +95,7 @@ details p{margin:10px 0 0;color:var(--muted)}
       <p>Use the tools you already use every day. There is nothing complicated to learn.</p>
     </div>
     <div class="grid g3 steps">
-      <div class="step"><div class="n">1</div><h3>Send it</h3><p>Message on WhatsApp, snap a receipt in the Mhasibu app, upload a file or statement, or connect your Lineshop sales.</p></div>
+      <div class="step"><div class="n">1</div><h3>Send it</h3><p>Open the Mhasibu app and type what happened, or snap a photo of the receipt. Sales from Lineshop can flow in too.</p></div>
       <div class="step"><div class="n">2</div><h3>It's sorted</h3><p>The Virtual Accountant reads it, classifies it, flags duplicates and missing receipts, and posts the entry to your books.</p></div>
       <div class="step"><div class="n">3</div><h3>You stay informed</h3><p>Get daily summaries, due-date alerts and monthly statements. Ask it questions in chat, any time.</p></div>
     </div>
@@ -137,7 +114,7 @@ details p{margin:10px 0 0;color:var(--muted)}
           <li>Record sales from Lineshop or from your sales agents</li>
           <li>Create and send customer invoices from a simple instruction</li>
           <li>Track receivables and follow up on late payments</li>
-          <li>Record bank, mobile-money and WhatsApp payment receipts</li>
+          <li>Record bank and mobile-money payment receipts</li>
         </ul></div>
       <div class="card"><h3>Expenses &amp; assets</h3>
         <ul>
@@ -169,10 +146,10 @@ details p{margin:10px 0 0;color:var(--muted)}
       <span class="eyebrow">Capture it anywhere</span>
       <h2>Works where your business already happens</h2>
       <ul class="ticks">
-        <li><b>WhatsApp</b>: text, voice-note style instructions, photos of receipts</li>
-        <li><b>Mhasibu app</b>: scan receipts, review what was recorded, chat with your accountant</li>
+        <li><b>Mhasibu app, chat</b>: type or speak what happened, or ask a question</li>
+        <li><b>Mhasibu app, scan</b>: photograph a receipt, check what it read, and save it</li>
         <li><b>Lineshop</b>: sales flow straight into your books</li>
-        <li><b>File upload</b>: bank and mobile-money statements, attachments, proofs of payment</li>
+        <li><b>Attachments</b>: photos and files, up to 5 MB each</li>
       </ul>
     </div>
     <div>
